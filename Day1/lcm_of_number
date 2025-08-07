@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b, lcm;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+
+    int maxNum = max(a, b);
+    lcm = maxNum;
+
+    while (true) {
+        if (lcm % a == 0 && lcm % b == 0)
+            break;
+        lcm++;
+    }
+
+    cout << "LCM = " << lcm << endl;
+    return 0;
+}
