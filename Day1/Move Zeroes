@@ -1,0 +1,26 @@
+You are given an integer array nums.
+Move all the zeroes to the end of the array, while keeping the order of non-zero elements same.
+Do it in-place (don’t use another array).
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void moveZeroes(vector<int>& nums) {
+    int write = 0; // Position for next non-zero
+    for (int read = 0; read < nums.size(); read++) {
+        if (nums[read] != 0) {
+            swap(nums[write], nums[read]);
+            write++;
+        }
+    }
+}
+
+int main() {
+    vector<int> nums = {0, 1, 0, 3, 12};
+    moveZeroes(nums);
+
+    for (int n : nums) cout << n << " ";
+    return 0;
+}
