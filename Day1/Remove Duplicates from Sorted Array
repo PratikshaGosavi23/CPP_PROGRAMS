@@ -1,0 +1,37 @@
+You are given a sorted array of integers.
+Remove the duplicates in-place such that each unique element appears only once.
+Return the new length of the array (ignore extra elements after that length).
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int removeDuplicates(vector<int>& nums) {
+    if (nums.empty()) return 0;  // edge case
+
+    int write = 1;  // position for next unique element
+    for (int read = 1; read < nums.size(); read++) {
+        if (nums[read] != nums[read - 1]) {
+            nums[write] = nums[read]; 
+            write++;
+        }
+    }
+    return write; // new length
+}
+
+int main() {
+    vector<int> nums;
+    nums.push_back(1);
+    nums.push_back(1);
+    nums.push_back(2);
+    nums.push_back(2);
+    nums.push_back(3);
+
+    int newLength = removeDuplicates(nums);
+
+    // print only unique part
+    for (int i = 0; i < newLength; i++) {
+        cout << nums[i] << " ";
+    }
+    return 0;
+}
