@@ -1,0 +1,7 @@
+int calcGCD(int n, int m){
+    // Base case
+    if (m == 0) return n;
+
+    // Recursive step (Euclid?s Algorithm)
+    return calcGCD(m, n % m);
+}
